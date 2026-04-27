@@ -1,77 +1,799 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Melissa - Minha Promessa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        :root { --gold: #C5A059; --text: #333; --bg: #fdfcfb; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        
-        .container { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; text-align: center; }
-        
-        /* Estilo da Foto de Destaque */
-        .hero-img { width: 100%; max-width: 500px; height: 600px; object-fit: cover; border-radius: 2px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem; border: 1px solid #eee; }
-        
-        h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 400; font-style: italic; margin-bottom: 1rem; color: #1a1a1a; }
-        .subtitle { letter-spacing: 4px; text-transform: uppercase; font-size: 0.8rem; color: var(--gold); margin-bottom: 3rem; display: block; }
-        
-        .letter-content { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; text-align: center; color: #444; max-width: 600px; margin: 0 auto 4rem; font-style: italic; }
-        
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 4rem; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 2rem 0; }
-        .stat-item span { display: block; color: var(--gold); font-size: 1.5rem; font-family: 'Cormorant Garamond', serif; }
-        .stat-item p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gustavo & Melissa — 15 Meses</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .promise-box { background: white; padding: 3rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 4rem; }
-        .promise-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; margin-bottom: 1.5rem; }
-        .promise-box p { font-size: 1.1rem; color: #666; margin-bottom: 1rem; }
+  :root {
+    --rose: #c97e7e;
+    --rose-light: #f0d5d0;
+    --rose-pale: #faf3f0;
+    --blush: #e8b4a0;
+    --gold: #c9a97e;
+    --gold-light: #f0e8d5;
+    --cream: #fdf8f4;
+    --warm-dark: #3d2b2b;
+    --warm-mid: #7a4f4f;
+    --text-body: #5c3d3d;
+  }
 
-        .footer { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-top: 5rem; opacity: 0.8; }
-        
-        /* Animação Inicial */
-        .fade-in { animation: fadeIn 2.5s ease forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: var(--text-body);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 60px 24px;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #f7e0d8 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 20% 80%, #f0ddd6 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 80% 70%, #fce8e0 0%, transparent 60%),
+      var(--cream);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle 1px at 20% 30%, #c97e7e44 1px, transparent 1px),
+      radial-gradient(circle 1px at 60% 15%, #c9a97e44 1px, transparent 1px),
+      radial-gradient(circle 1px at 80% 40%, #c97e7e33 1px, transparent 1px),
+      radial-gradient(circle 1px at 35% 70%, #c9a97e33 1px, transparent 1px),
+      radial-gradient(circle 1px at 90% 75%, #c97e7e22 1px, transparent 1px),
+      radial-gradient(circle 1px at 10% 85%, #c9a97e22 1px, transparent 1px);
+    pointer-events: none;
+  }
+
+  .badge {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(52px, 10vw, 96px);
+    color: var(--warm-dark);
+    text-align: center;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.4s;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .months-display {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.6s;
+  }
+
+  .months-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(80px, 18vw, 160px);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--rose);
+    letter-spacing: -4px;
+  }
+
+  .months-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(18px, 3vw, 22px);
+    color: var(--warm-mid);
+    text-align: center;
+    max-width: 500px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.8s;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 1.4s;
+  }
+
+  .scroll-hint span {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blush);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--blush), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* PHOTO SECTION */
+  .photo-section {
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .photo-frame-outer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .photo-frame-outer::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border: 1px solid var(--rose-light);
+    border-radius: 4px;
+    pointer-events: none;
+  }
+
+  .photo-frame-outer::after {
+    content: '';
+    position: absolute;
+    inset: -24px;
+    border: 1px solid var(--gold-light);
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .photo-placeholder {
+    width: min(340px, 85vw);
+    aspect-ratio: 3/4;
+    background: linear-gradient(145deg, var(--rose-light), var(--gold-light));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+
+  .photo-placeholder:hover { opacity: 0.85; }
+
+  .photo-placeholder svg {
+    width: 48px;
+    height: 48px;
+    opacity: 0.5;
+  }
+
+  .photo-placeholder p {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+    opacity: 0.7;
+  }
+
+  #photo-upload { display: none; }
+
+  .photo-real {
+    width: min(340px, 85vw);
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 2px;
+    display: block;
+  }
+
+  .photo-caption {
+    margin-top: 48px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--warm-mid);
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 24px;
+    max-width: 600px;
+    margin: 0 auto 80px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--rose-light), transparent);
+  }
+
+  .divider-diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--rose);
+    transform: rotate(45deg);
+    opacity: 0.6;
+  }
+
+  /* DREAMS SECTION */
+  .dreams-section {
+    padding: 0 24px 80px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(32px, 6vw, 52px);
+    color: var(--warm-dark);
+    text-align: center;
+    line-height: 1.15;
+    margin-bottom: 48px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .dream-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+
+  .dream-card {
+    background: white;
+    border: 1px solid var(--rose-light);
+    border-radius: 2px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .dream-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--rose);
+  }
+
+  .dream-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--rose), var(--blush));
+  }
+
+  .dream-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .dream-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--warm-dark);
+    margin-bottom: 8px;
+  }
+
+  .dream-card p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--warm-mid);
+    font-weight: 300;
+  }
+
+  /* PEACE SECTION */
+  .peace-section {
+    padding: 0 24px 80px;
+  }
+
+  .peace-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid var(--rose-light);
+    border-radius: 2px;
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .peace-inner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--rose-light), var(--rose), var(--gold), var(--rose-light));
+  }
+
+  .peace-inner .section-eyebrow,
+  .peace-inner .section-title {
+    text-align: left;
+    margin-bottom: 16px;
+  }
+
+  .peace-inner .section-title {
+    margin-bottom: 32px;
+  }
+
+  .peace-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(17px, 2.2vw, 20px);
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--warm-dark);
+  }
+
+  .peace-body p + p { margin-top: 1.4em; }
+
+  .peace-body strong {
+    font-weight: 500;
+    color: var(--rose);
+  }
+
+  .peace-quote {
+    margin-top: 40px;
+    padding: 24px 32px;
+    background: var(--rose-pale);
+    border-left: 3px solid var(--rose);
+    position: relative;
+  }
+
+  .peace-quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    color: var(--rose-light);
+    line-height: 0;
+    position: absolute;
+    top: 32px;
+    left: 16px;
+  }
+
+  .peace-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(16px, 2vw, 19px);
+    color: var(--warm-mid);
+    line-height: 1.7;
+    padding-left: 32px;
+  }
+
+  @media (max-width: 560px) {
+    .peace-inner { padding: 36px 24px; }
+  }
+
+  /* LETTER */
+  .letter-section {
+    background: white;
+    border-top: 1px solid var(--rose-light);
+    border-bottom: 1px solid var(--rose-light);
+    padding: 80px 24px;
+  }
+
+  .letter-inner {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .letter-date {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blush);
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+
+  .letter-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--warm-dark);
+  }
+
+  .letter-body p + p { margin-top: 1.5em; }
+
+  .letter-body strong {
+    font-weight: 500;
+    color: var(--rose);
+  }
+
+  .letter-signature {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .letter-signature .with-love {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--blush);
+  }
+
+  .letter-signature .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--warm-dark);
+    font-weight: 300;
+  }
+
+  /* COUNTDOWN */
+  .stats-section {
+    padding: 80px 24px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    border: 1px solid var(--rose-light);
+    margin-top: 48px;
+  }
+
+  .stat-box {
+    padding: 32px 16px;
+    background: white;
+    position: relative;
+  }
+
+  .stat-box + .stat-box::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: var(--rose-light);
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 7vw, 56px);
+    font-weight: 300;
+    color: var(--warm-dark);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blush);
+    margin-top: 8px;
+    font-weight: 300;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 60px 24px;
+    text-align: center;
+    position: relative;
+  }
+
+  .footer-heart {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 24px;
+    animation: heartbeat 2.5s ease-in-out infinite;
+  }
+
+  .footer-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--warm-mid);
+    line-height: 1.6;
+  }
+
+  .footer-names {
+    margin-top: 16px;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--blush);
+    font-weight: 200;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    14%       { transform: scale(1.12); }
+    28%       { transform: scale(1); }
+    42%       { transform: scale(1.08); }
+    56%       { transform: scale(1); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
 </head>
 <body>
 
-    <div class="container fade-in">
-        <span class="subtitle">Nossa história • 14 Meses</span>
-        <h1>Gustavo & Melissa</h1>
-        
-        <img src="mes14.jpg" onerror="this.onerror=null; this.src='ano1.jpg';" alt="Nós dois" class="hero-img">
+<!-- HERO -->
+<section class="hero">
+  <p class="badge">Nossa história &nbsp;·&nbsp; 15 meses</p>
+  <h1 class="hero-title">Gustavo<br><em>&</em> Melissa</h1>
+  <div class="months-display">
+    <span class="months-number">15</span>
+    <span class="months-label">meses juntos</span>
+  </div>
+  <p class="hero-sub">Cada mês ao seu lado me ensina que o melhor ainda está por vir.</p>
+  <div class="scroll-hint">
+    <span>continuar</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
 
-        <div class="letter-content">
-            Nesses 14 meses, eu aprendi que o amor se constrói no dia a dia. A vida não é perfeita, tem dias bons e dias ruins, meu papel é estar ao seu lado em todos eles.
-        </div>
-
-        <div class="stats-grid">
-            <div class="stat-item">
-                <span>427 Dias</span>
-                <p>De Escolhas Diárias</p>
-            </div>
-            <div class="stat-item">
-                <span>Infinitos</span>
-                <p>Planos para o Futuro</p>
-            </div>
-        </div>
-
-        <div class="promise-box">
-            <h2>Entre erros e acertos...</h2>
-            <p>Eu não prometo ser um homem perfeito, porque a perfeição não existe. Mas eu te prometo algo muito mais real:</p>
-            <p><strong>Eu prometo ser o melhor marido do mundo para você.</strong></p>
-            <p>Prometo aprender com cada falha, priorizar o nosso amor acima de tudo e ser o seu porto seguro, não importa o quão agitado o mar lá fora esteja.</p>
-            <p>Cada dia ao seu lado é um ensaio para o nosso 'para sempre'. E eu mal posso esperar para que esse 'para sempre' comece logo debaixo do mesmo teto.</p>
-        </div>
-
-        <div class="footer">
-            Com todo o meu amor, <br>
-            Gustavo.
-        </div>
+<!-- PHOTO -->
+<section class="photo-section reveal">
+  <div class="photo-frame-outer" onclick="document.getElementById('photo-upload').click()">
+    <img id="photo-display" class="photo-real" src="mes15.jpg" alt="Gustavo e Melissa"
+      onerror="this.style.display='none'; document.getElementById('photo-ph').style.display='flex'">
+    <div class="photo-placeholder" id="photo-ph" style="display:none">
+      <svg viewBox="0 0 48 48" fill="none" stroke="#c97e7e" stroke-width="1.5">
+        <rect x="4" y="10" width="40" height="30" rx="2"/>
+        <circle cx="24" cy="23" r="7"/>
+        <path d="M16 10l3-6h10l3 6"/>
+      </svg>
+      <p>adicionar foto</p>
     </div>
+  </div>
+  <input type="file" id="photo-upload" accept="image/*" onchange="loadPhoto(event)">
+  <p class="photo-caption">Maio de 2026 — 15 meses de nós</p>
+</section>
 
+<div class="divider reveal">
+  <div class="divider-line"></div>
+  <div class="divider-diamond"></div>
+  <div class="divider-line"></div>
+</div>
+
+<!-- DREAMS -->
+<section class="dreams-section reveal">
+  <p class="section-eyebrow">O que nos espera</p>
+  <h2 class="section-title">Os sonhos que<br>quero <em>construir</em> com você</h2>
+
+  <div class="dream-cards">
+    <div class="dream-card">
+      <span class="dream-icon">🏡</span>
+      <h3>Nosso lar</h3>
+      <p>Não consigo parar de pensar em ter um lar que seja só nosso. Um cantinho que a gente vai construindo pouco a pouco — cada detalhe escolhido por nós dois, até que aquele lugar seja completamente a nossa cara.</p>
+    </div>
+    <div class="dream-card">
+      <span class="dream-icon">✈️</span>
+      <h3>Nossas viagens</h3>
+      <p>Lugares que ainda não vimos, aventuras que só fazem sentido quando a gente está junto.</p>
+    </div>
+    <div class="dream-card">
+      <span class="dream-icon">🌅</span>
+      <h3>Nosso futuro</h3>
+      <p>Cada manhã ao seu lado, construindo a vida que os dois merecem ter.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PEACE SECTION -->
+<section class="peace-section reveal">
+  <div class="peace-inner">
+    <p class="section-eyebrow">O que mais importa</p>
+    <h2 class="section-title">Construir <em>paz</em> juntos</h2>
+    <div class="peace-body">
+      <p>
+        Tem uma coisa que eu penso muito e que faz parte dos meus maiores sonhos com você:
+        <strong>acordar todos os dias sabendo que teremos paz no nosso lar.</strong>
+      </p>
+      <p>
+        Não falo de uma vida sem problemas — a vida sempre vai ter seus momentos difíceis.
+        Falo de um ambiente onde a gente se sente seguro, onde a porta de casa é sinônimo de descanso,
+        onde a gente pode ser quem é sem medo, sem tensão, sem peso.
+      </p>
+      <p>
+        Um lar em paz não é algo que a gente encontra — é algo que a gente <strong>constrói juntos, dia a dia,</strong>
+        com cuidado, com escuta, com escolhas que priorizam o bem do outro.
+        E eu quero construir isso com você.
+      </p>
+      <p>
+        Quero que cada manhã ao seu lado seja leve. Que a nossa casa seja o lugar mais tranquilo do mundo
+        pra nós dois. Que a paz que a gente sente quando está junto nunca vire raridade —
+        <strong>que ela seja o nosso padrão.</strong>
+      </p>
+    </div>
+    <div class="peace-quote">
+      <span class="peace-quote-mark">"</span>
+      <p>A paz não é a ausência de conflito. É a presença de amor que sabe atravessá-lo.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider reveal">
+  <div class="divider-line"></div>
+  <div class="divider-diamond"></div>
+  <div class="divider-line"></div>
+</div>
+
+<!-- LETTER -->
+<section class="letter-section reveal">
+  <div class="letter-inner">
+    <p class="letter-date">Maio de 2026 · 15 meses</p>
+    <div class="letter-body">
+      <p>Melissa,</p>
+      <p>
+        Quinze meses parecem pouco para descrever o quanto a sua presença mudou a minha vida.
+        Mas talvez o tempo não seja o que mede um amor — e sim <strong>o quanto a gente cresce juntos</strong>.
+      </p>
+      <p>
+        Eu te olho e já não consigo imaginar um futuro que não tenha você no centro dele.
+        Os planos que antes eram meus viraram nossos, e cada sonho ganhou um novo sabor
+        só de pensar que vou realizá-los do seu lado.
+      </p>
+      <p>
+        Eu não sei exatamente como vai ser esse futuro. Mas sei que quero descobrir com você —
+        cada surpresa, cada conquista, cada dia comum que vira especial porque você está aqui.
+      </p>
+      <p>
+        <strong>Você é o meu plano favorito.</strong>
+      </p>
+    </div>
+    <div class="letter-signature">
+      <span class="with-love">com todo o meu amor,</span>
+      <span class="name">Gustavo.</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section reveal">
+  <p class="section-eyebrow">Em números</p>
+  <h2 class="section-title">O que <em>construímos</em></h2>
+  <div class="stats-grid">
+    <div class="stat-box">
+      <span class="stat-number" id="days-count">457</span>
+      <span class="stat-label">dias juntos</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number">15</span>
+      <span class="stat-label">meses</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number">∞</span>
+      <span class="stat-label">planos</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="reveal">
+  <svg class="footer-heart" viewBox="0 0 48 48" fill="none">
+    <path d="M24 40s-17-10.5-17-21a9 9 0 0118 0 9 9 0 0118 0c0 10.5-17 21-17 21z"
+      fill="#c97e7e" opacity="0.8"/>
+  </svg>
+  <p class="footer-text">
+    "O amor não é apenas um sentimento.<br>
+    É a escolha de estar juntos todo dia."
+  </p>
+  <p class="footer-names">Gustavo &amp; Melissa &nbsp;·&nbsp; 2026</p>
+</footer>
+
+<script>
+  function loadPhoto(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    const img = document.getElementById('photo-display');
+    const ph  = document.getElementById('photo-ph');
+    img.src = url;
+    img.style.display = 'block';
+    ph.style.display  = 'none';
+  }
+
+  const start = new Date('2025-02-27');
+  const today = new Date();
+  const days  = Math.floor((today - start) / 86400000);
+  document.getElementById('days-count').textContent = days > 0 ? days : 457;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
-
